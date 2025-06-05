@@ -42,16 +42,11 @@ export default function HomePage() {
     //     ))}
     //   </div>
     // </main>
-    <main className="flex flex-col items-center justify-center h-screen text-white bg-black p-8">
+    <main className="min-h-screen flex flex-col justify-center items-center text-center p-8">
       <h1 className="text-4xl font-bold mb-4">🎬 Welcome to VidFast</h1>
-      <p className="text-lg mb-8 text-gray-300 text-center max-w-xl">
-        Discover, search, and stream your favorite movies instantly.
-      </p>
-      <a
-        href="/home"
-        className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold"
-      >
-        Enter Site
+      <p className="text-gray-600 text-lg mb-6">Discover and stream your favorite movies instantly.</p>
+      <a href="/home" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+        Get Started
       </a>
     </main>
   )
