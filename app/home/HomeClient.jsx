@@ -19,6 +19,7 @@ export default function HomeClient() {
       const data = await searchMovies(query)
       setResults(data.Search || [])
       setLoading(false)
+      console.log(results[0].Type)
     }
 
     fetchData()
@@ -37,7 +38,7 @@ export default function HomeClient() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
         {results.map((movie) => (
-          <MovieCard key={movie.imdbID} movie={movie} />
+          <MovieCard key={movie.imdbID} movie={movie} type={movie.Type} />
         ))}
       </div>
     </>
