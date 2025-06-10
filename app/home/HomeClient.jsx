@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import SearchBar from '../components/SearchBar'
 import MovieCard from '../components/MovieCard'
-import { searchMovies } from '@/lib/omdb'
+import { getEpisode, searchMovies } from '@/lib/omdb'
 
 export default function HomeClient() {
   const [results, setResults] = useState([])
@@ -19,9 +19,30 @@ export default function HomeClient() {
       const data = await searchMovies(query)
       setResults(data.Search || [])
       setLoading(false)
-      console.log(results[0].Type)
+    }
+    let isMounted = true
+    // Fetch episodes for non-movie types after fetching search results
+    const fetchEpisodes = async (movies) => {
+      const updatedResults = await Promise.all(
+      movies.map(async (movie) => {
+        if (movie.Type !== 'movie') {
+        // You may need to implement fetchEpisodesByImdbID in your omdb lib
+        const episodes = await getEpisode({ id: movie.imdbID, season: 1 })
+        return { ...movie, episodes }
+        }
+        return movie
+      })
+      )
+      if (isMounted) setResults(updatedResults)
     }
 
+    fetchData().then(() => {
+      if (query && results.length > 0) {
+      fetchEpisodes(results)
+      }
+    })
+
+    return () => { isMounted = false }
     fetchData()
   }, [query])
 
@@ -38,7 +59,7 @@ export default function HomeClient() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
         {results.map((movie) => (
-          <MovieCard key={movie.imdbID} movie={movie} type={movie.Type} />
+          <MovieCard key={movie.imdbID} movie={movie} type={movie.Type}  />
         ))}
       </div>
     </>

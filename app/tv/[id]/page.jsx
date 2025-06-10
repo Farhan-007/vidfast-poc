@@ -46,99 +46,6 @@ export default function MoviePage({ params }) {
     }
 
     return (
-        // <main className="min-h-screen bg-zinc-900 text-white p-6 md:p-12">
-        //     <div className="max-w-6xl mx-auto">
-        //         <h1 className="text-4xl font-bold mb-8 text-center">{movie.Title}</h1>
-
-        //         <div className="flex flex-col md:flex-row gap-10">
-        //             {/* Poster */}
-        //             <img
-        //                 src={movie.Poster !== 'N/A' ? movie.Poster : '/no-image.png'}
-        //                 alt={movie.Title}
-        //                 className="w-full md:w-80 rounded shadow-lg"
-        //             />
-
-        //             {/* Details */}
-        //             <div className="flex-1 space-y-4">
-        //                 <p>
-        //                     <span className="font-semibold text-lg">🎬 Genre:</span>{' '}
-        //                     <span className="text-gray-300">{movie.Genre}</span>
-        //                 </p>
-
-        //                 <p>
-        //                     <span className="font-semibold text-lg">📅 Released:</span>{' '}
-        //                     <span className="text-gray-300">{movie.Released}</span>
-        //                 </p>
-
-        //                 <p>
-        //                     <span className="font-semibold text-lg">⭐ IMDb Rating:</span>{' '}
-        //                     <span className="text-yellow-400">{movie.imdbRating}</span>
-        //                 </p>
-
-        //                 <div>
-        //                     <p className="font-semibold text-lg mb-1">📝 Plot:</p>
-        //                     <p className="text-gray-300 leading-relaxed">{movie.Plot}</p>
-        //                 </div>
-        //             </div>
-        //         </div>
-
-        //         {/* Inputs for Season & Episode */}
-        //         <div className="mt-12 mb-6 flex items-center gap-6">
-        //             <div>
-        //                 <label htmlFor="season" className="block font-medium mb-1">Season</label>
-        //                 <select
-        //                     id="season"
-        //                     value={season}
-        //                     onChange={(e) => setSeason(Number(e.target.value))}
-        //                     className="bg-zinc-800 text-white px-3 py-1 rounded border border-zinc-700 w-32"
-        //                 >
-        //                     {seasons.length > 0 ? (
-        //                         seasons.map((s, idx) => (
-        //                             <option key={idx} value={s}>
-        //                                 Season {s}
-        //                             </option>
-        //                         ))
-        //                     ) : (
-        //                         <option value={1}>Season 1</option>
-        //                     )}
-        //                 </select>
-        //             </div>
-
-        //             <div>
-        //                 <label htmlFor="episode" className="block font-medium mb-1">Episode</label>
-        //                 <select
-        //                     id="episode"
-        //                     value={episode}
-        //                     onChange={(e) => setEpisode(Number(e.target.value))}
-        //                     className="bg-zinc-800 text-white px-3 py-1 rounded border border-zinc-700 w-32"
-        //                 >
-        //                     {episodes.length > 0 ? (
-        //                         episodes.map((ep, idx) => (
-        //                             <option key={ep.Episode} value={ep.Episode}>
-        //                                 {ep.Episode}. {ep.Title}
-        //                             </option>
-        //                         ))
-        //                     ) : (
-        //                         <option value={1}>1</option>
-        //                     )}
-        //                 </select>
-        //             </div>
-        //         </div>
-
-        //         {/* Streaming */}
-        //         <div className="mt-4">
-        //             <h2 className="text-2xl font-semibold mb-4">🎥 Watch Now</h2>
-        //             <div className="w-full aspect-video rounded overflow-hidden">
-        //                 <iframe
-        //                     src={`https://vidfast.pro/tv/${id}/${season}/${episode}?autoPlay=true`}
-        //                     allow="autoplay; encrypted-media"
-        //                     allowFullScreen
-        //                     className="w-full h-full"
-        //                 />
-        //             </div>
-        //         </div>
-        //     </div>
-        // </main>
 
         <main className="min-h-screen bg-neutral-900 text-white p-4 md:p-8">
             <div className="max-w-4xl mx-auto space-y-6">
@@ -167,7 +74,7 @@ export default function MoviePage({ params }) {
                 </div>
 
                 {/* Inputs for Season & Episode */}
-                <div className="bg-zinc-900 p-4 rounded mb-6 mt-8 w-2xl space-y-6">
+                <div className="bg-zinc-900 p-4 rounded mb-6 mt-8 md:w-2xl w-full  space-y-6">
                     {/* Range Label */}
                     <div className="flex gap-5 font-medium text-sm  pb-1 mb-2 w-fit">
                         <div>
